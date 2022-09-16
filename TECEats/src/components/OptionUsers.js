@@ -1,18 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,ScrollView,TextInput,Button } from 'react-native';
 import Item from './Item';
+import { getAllItems } from './services.js/mainService';
 export default function OptionUsers({navigation}) {
+  
+  
+  async function   IngresarCliente(){
+      const result=await getAllItems()
+      console.log("RESULT==>",result)
+      navigation.navigate('HomeUser', {
+        items:result.rows
+      })
+
+  }
   return (
     <View style={styles.centered} >
       {/* <TextInput style={styles.input} placeholder="Buscar" /> */}
       <Text style={styles.title}>Selecciona el usuario que es usted</Text>
       
       <View style={styles.buttonContainer} >
-      <Button style={styles.button}  title="Cliente" color="#216011"/>
+      <Button onPress={IngresarCliente} style={styles.button}  title="Cliente" color="#216011"/>
       </View>
       <View style={styles.buttonContainer} >
       <Button style={styles.button} onPress={() =>
-        navigation.navigate('details')
+        navigation.navigate('Login')
       } title="Administrador " color="#216011"/>
       </View>
       

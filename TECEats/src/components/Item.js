@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button } from 'react-native';
 
-export default function Item({buttonText}) {
+export default function Item({nombre,precio,buttonText}) {
   return (
     <View style={styles.centered}>
-         <Text style={styles.title}>Nombre</Text>
+         <Text style={styles.title}>{nombre}</Text>
         <View>
 
         </View>
-      <Text style={styles.title}>₡ Precio</Text>
+      <Text style={styles.title}> {precio}</Text>
       {/* <Text style={styles.subtitle}>Using Flexbox</Text> */}
       <Button style={styles.button}  title={buttonText} color="#216011"/>
     </View>

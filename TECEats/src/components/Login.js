@@ -1,19 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,ScrollView,TextInput,Button } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View,ScrollView,TextInput,Button,ToastAndroid } from 'react-native';
+import { login } from './services.js/mainService';
 import Item from './Item';
-export default function Login() {
+import { getAllItems } from './services.js/mainService';
+
+export default function Login({navigation}) {
+  const [password,setPassword]=useState("")
+  const [email,setEmail]=useState("")
+
+  async function   Ingresar(email,password){
+    const resultado=await login(email,password)
+    console.log("Este es el resultado del login==>",resultado.status)
+    if(resultado.status){
+      const result=await getAllItems()
+      console.log("RESULT==>",result)
+      navigation.navigate('Home', {
+        items:result.rows
+      })
+    }
+  }
   return (
     <View style={styles.centered} >
       {/* <TextInput style={styles.input} placeholder="Buscar" /> */}
       <Text style={styles.title}>Correo Institucional</Text>
-      <TextInput style={styles.input}/>
+      <TextInput style={styles.input} defaultValue={email}  onChangeText={newText => setEmail(newText)}/>
       <Text style={styles.title}>Contraseña</Text>
-      <TextInput style={styles.input}/>
+      <TextInput style={styles.input} defaultValue={password}  onChangeText={newText => setPassword(newText)}/>
       <View style={styles.buttonContainer} >
-      <Button style={styles.button}  title="Ingresar " color="#216011"/>
-      </View>
-      <View style={styles.buttonContainer} >
-      <Button style={styles.button}  title="Registrarse " color="#216011"/>
+      <Button onPress={()=>{ Ingresar(email,password)}}   title="Ingresar " color="#216011"/>
       </View>
       
      

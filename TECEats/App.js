@@ -9,6 +9,7 @@ import Login from './src/components/Login';
 import Register from './src/components/Register';
 import AddItem from './src/components/AddItem';
 import OptionUsers from './src/components/OptionUsers';
+import HomeUser from './src/components/HomeUser';
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -19,8 +20,13 @@ function App() {
         headerShown:false
       }}
       >
-        <Stack.Screen name="home" component={OptionUsers} />
-        <Stack.Screen name="details" component={Details} />
+        <Stack.Screen name="optionUsers" component={OptionUsers} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="AddItem" component={AddItem} />
+        <Stack.Screen name="HomeUser" component={HomeUser} />
+        <Stack.Screen name="Carrito" component={Cart} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
