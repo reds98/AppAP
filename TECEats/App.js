@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/components/Home';
 import Details from './src/components/Details';
+import Cart from './src/components/Cart';
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         headerShown:false
       }}
       >
-        <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="home" component={Cart} />
         <Stack.Screen name="details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
