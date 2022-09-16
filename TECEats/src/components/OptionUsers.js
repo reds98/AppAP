@@ -21,6 +21,7 @@ export default function OptionUsers({navigation}) {
   );
 
 }
+
 const styles = StyleSheet.create({
   input: {
     width: 300,
