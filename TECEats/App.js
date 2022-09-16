@@ -5,6 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/components/Home';
 import Details from './src/components/Details';
 import Cart from './src/components/Cart';
+import Login from './src/components/Login';
+import Register from './src/components/Register';
+import AddItem from './src/components/AddItem';
+import OptionUsers from './src/components/OptionUsers';
 const Stack = createNativeStackNavigator();
 function App() {
   return (
@@ -15,7 +19,7 @@ function App() {
         headerShown:false
       }}
       >
-        <Stack.Screen name="home" component={Cart} />
+        <Stack.Screen name="home" component={OptionUsers} />
         <Stack.Screen name="details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -32,28 +36,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-// export default function App() {
-//   return (
-//     <View style={styles.centered}>
-//       <Text style={styles.title}>Center a View Component</Text>
-//       <Text style={styles.subtitle}>Using Flexbox</Text>
-//     </View>
-//   );
-// }
-  
-// const styles = StyleSheet.create({
-//   centered: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#ffc2c2",
-//   },
-//   title: {
-//     fontSize: 18,
-//     marginVertical: 2,
-//   },
-//   subtitle: {
-//     fontSize: 14,
-//     color: "#888",
-//   },
-// });
+
